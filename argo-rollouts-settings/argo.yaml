@@ -1,0 +1,15 @@
+project: default
+source:
+  repoURL: 'https://github.com/argoproj/argo-rollouts'
+  path: manifests
+  targetRevision: HEAD
+  directory:
+    jsonnet: {}
+    include: install.yaml
+destination:
+  server: 'https://kubernetes.default.svc'
+  namespace: argo-rollouts
+syncPolicy:
+  automated: {}
+  syncOptions:
+    - CreateNamespace=true
