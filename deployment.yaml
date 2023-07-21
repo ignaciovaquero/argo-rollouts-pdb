@@ -16,7 +16,7 @@ spec:
       topologySpreadConstraints:
         - topologyKey: kubernetes.io/hostname
           maxSkew: 1
-          whenUnsatisfiable: ScheduleAnyway
+          whenUnsatisfiable: DoNotSchedule
           labelSelector:
             matchLabels:
               app: rollouts-demo
