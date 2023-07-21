@@ -13,6 +13,13 @@ spec:
       labels:
         app: rollouts-demo
     spec:
+      topologySpreadConstraints:
+        - topologyKey: kubernetes.io/hostname
+          maxSkew: 1
+          whenUnsatisfiable: ScheduleAnyway
+          labelSelector:
+            matchLabels:
+              app: rollouts-demo
       containers:
       - name: rollouts-demo
         image: argoproj/rollouts-demo:blue
