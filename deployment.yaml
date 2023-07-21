@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: rollouts-demo
 spec:
-  replicas: 3
+  replicas: 0
   revisionHistoryLimit: 2
   selector:
     matchLabels:
@@ -13,13 +13,6 @@ spec:
       labels:
         app: rollouts-demo
     spec:
-      topologySpreadConstraints:
-        - topologyKey: topology.kubernetes.io/zone
-          maxSkew: 1
-          whenUnsatisfiable: ScheduleAnyway
-          labelSelector:
-            matchLabels:
-              app: rollouts-demo
       containers:
       - name: rollouts-demo
         image: argoproj/rollouts-demo:blue
