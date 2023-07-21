@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: rollouts-demo
 spec:
-  replicas: 2
+  replicas: 3
   revisionHistoryLimit: 2
   selector:
     matchLabels:
